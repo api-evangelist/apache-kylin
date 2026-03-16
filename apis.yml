@@ -1,0 +1,36 @@
+aid: apache-kylin
+name: Apache Kylin
+description: >-
+  Apache Kylin is an open-source distributed analytics engine designed to provide a SQL interface and multi-dimensional analysis (OLAP) on large-scale datasets. It provides sub-second query latency on trillion-record datasets.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - OLAP
+  - Analytics
+  - SQL
+  - Big Data
+  - Cube
+created: '2026-03-16'
+modified: '2026-03-16'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: apache-kylin:apache-kylin-rest-api
+    name: Apache Kylin REST API
+    description: >-
+      The Kylin REST API provides endpoints for cube management, model management, job management, SQL queries, table management, and user authentication, along with JDBC and ODBC drivers for SQL access.
+    humanURL: https://kylin.apache.org/docs/
+    tags:
+      - REST
+      - SQL
+      - OLAP
+      - JDBC
+    properties:
+      - type: Documentation
+        url: https://kylin.apache.org/docs/
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
