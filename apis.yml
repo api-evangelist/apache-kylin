@@ -7,11 +7,11 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - OLAP
   - Analytics
-  - SQL
   - Big Data
   - Cube
+  - OLAP
+  - SQL
 created: '2026-03-16'
 modified: '2026-03-16'
 url: >-
@@ -24,10 +24,10 @@ apis:
       The Kylin REST API provides endpoints for cube management, model management, job management, SQL queries, table management, and user authentication, along with JDBC and ODBC drivers for SQL access.
     humanURL: https://kylin.apache.org/docs/
     tags:
+      - JDBC
+      - OLAP
       - REST
       - SQL
-      - OLAP
-      - JDBC
     properties:
       - type: Documentation
         url: https://kylin.apache.org/docs/
