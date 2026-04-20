@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-schema/rest-api-project-request-schema.json",
+  "title": "ProjectRequest",
+  "description": "Request to create a project",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "my_project"
+    },
+    "description": {
+      "type": "string",
+      "example": "My Kylin project"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

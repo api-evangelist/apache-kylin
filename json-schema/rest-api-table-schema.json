@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-schema/rest-api-table-schema.json",
+  "title": "Table",
+  "description": "A Kylin table",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "KYLIN_SALES"
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "cardinality": {
+      "type": "object"
+    },
+    "exd": {
+      "type": "object"
+    }
+  }
+}

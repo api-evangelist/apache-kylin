@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-schema/rest-api-model-schema.json",
+  "title": "Model",
+  "description": "A Kylin data model",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "kylin_sales_model"
+    },
+    "description": {
+      "type": "string",
+      "example": "Sales data model"
+    },
+    "factTable": {
+      "type": "string",
+      "example": "KYLIN_SALES"
+    },
+    "status": {
+      "type": "string",
+      "example": "ONLINE"
+    }
+  }
+}

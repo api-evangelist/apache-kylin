@@ -1,0 +1,105 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Apache Kylin"
+  description: "Vocabulary for the Apache Kylin OLAP REST API and analytics workflows."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: kylin-rest-api
+      name: Apache Kylin REST API
+      version: "5.0.0"
+      baseUrl: http://localhost:7070/kylin/api
+      status: active
+
+  resources:
+    - name: queries
+      description: OLAP SQL queries
+      apis: [kylin-rest-api]
+      actions: [execute, execute-async]
+    - name: projects
+      description: Kylin project containers for models and cubes
+      apis: [kylin-rest-api]
+      actions: [list, create]
+    - name: models
+      description: Data models defining fact/dimension relationships
+      apis: [kylin-rest-api]
+      actions: [list]
+    - name: jobs
+      description: Cube build jobs
+      apis: [kylin-rest-api]
+      actions: [list, get, resume, cancel]
+    - name: tables
+      description: Source tables loaded into Kylin projects
+      apis: [kylin-rest-api]
+      actions: [list]
+
+  actions:
+    - name: execute
+      httpMethod: POST
+      pattern: read
+    - name: execute-async
+      httpMethod: POST
+      pattern: read
+    - name: list
+      httpMethod: GET
+      pattern: read
+    - name: get
+      httpMethod: GET
+      pattern: read
+    - name: create
+      httpMethod: POST
+      pattern: write
+    - name: resume
+      httpMethod: PUT
+      pattern: write
+    - name: cancel
+      httpMethod: PUT
+      pattern: write
+
+  authentication:
+    schemes:
+      - name: BasicAuth
+        type: http
+        scheme: basic
+
+capability:
+  workflows:
+    - name: OLAP Analytics
+      file: capabilities/olap-analytics.yaml
+      toolCount: 5
+      personas:
+        - Data Analyst
+        - BI Engineer
+
+  personas:
+    - id: data-analyst
+      name: Data Analyst
+      description: Analysts who execute OLAP SQL queries over large Hadoop datasets
+      workflows: [OLAP Analytics]
+    - id: bi-engineer
+      name: BI Engineer
+      description: Engineers who build and manage Kylin cubes for BI tool consumption
+      workflows: [OLAP Analytics]
+
+  namespaces:
+    - name: kylin-rest-api
+      type: consumed
+    - name: kylin-olap-analytics-api
+      type: rest-exposed
+      port: 8080
+    - name: kylin-olap-analytics-mcp
+      type: mcp-exposed
+      port: 9090
+
+crossReference:
+  - resource: queries
+    operations: [executeQuery, executeAsyncQuery]
+    workflows: [OLAP Analytics]
+    personas: [Data Analyst, BI Engineer]
+  - resource: jobs
+    operations: [listJobs, getJob, resumeJob, cancelJob]
+    workflows: [OLAP Analytics]
+    personas: [BI Engineer]

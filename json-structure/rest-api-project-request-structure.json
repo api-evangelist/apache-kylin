@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-structure/rest-api-project-request-structure.json",
+  "name": "ProjectRequest",
+  "description": "Request to create a project",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "my_project"
+    },
+    "description": {
+      "type": "string",
+      "example": "My Kylin project"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

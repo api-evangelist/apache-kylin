@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-schema/rest-api-job-schema.json",
+  "title": "Job",
+  "description": "A Kylin build job",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "type": "string",
+      "example": "job-1234"
+    },
+    "name": {
+      "type": "string",
+      "example": "BUILD CUBE - kylin_sales_cube"
+    },
+    "type": {
+      "type": "string",
+      "example": "BUILD"
+    },
+    "relatedCube": {
+      "type": "string",
+      "example": "kylin_sales_cube"
+    },
+    "relatedSegment": {
+      "type": "string",
+      "example": "segment-1234"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "READY",
+        "RUNNING",
+        "ERROR",
+        "STOPPED",
+        "FINISHED",
+        "DISCARDED"
+      ],
+      "example": "FINISHED"
+    },
+    "submitTime": {
+      "type": "integer",
+      "description": "Submit time as Unix timestamp",
+      "example": 1718153645993
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Job duration in seconds",
+      "example": 120
+    },
+    "mrWaiting": {
+      "type": "integer",
+      "description": "MapReduce waiting time",
+      "example": 10
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-structure/rest-api-project-structure.json",
+  "name": "Project",
+  "description": "A Kylin project",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "learn_kylin"
+    },
+    "description": {
+      "type": "string",
+      "example": "Learning project for Apache Kylin"
+    },
+    "createTimeUTC": {
+      "type": "integer",
+      "description": "Creation time as Unix timestamp",
+      "example": 1718153645993
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "kylin_sales_model",
+  "description": "Sales data model",
+  "factTable": "KYLIN_SALES",
+  "status": "ONLINE"
+}

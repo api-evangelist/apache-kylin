@@ -1,0 +1,18 @@
+{
+  "columnMetas": [
+    {}
+  ],
+  "results": [
+    [
+      "example-value"
+    ]
+  ],
+  "queryId": "query-1234",
+  "isException": false,
+  "exceptionMessage": "example-value",
+  "duration": 120,
+  "totalScanCount": 10000,
+  "totalScanBytes": 409600,
+  "hitExceptionCache": false,
+  "storageCacheUsed": false
+}

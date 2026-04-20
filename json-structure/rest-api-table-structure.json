@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-structure/rest-api-table-structure.json",
+  "name": "Table",
+  "description": "A Kylin table",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "KYLIN_SALES"
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "cardinality": {
+      "type": "object"
+    },
+    "exd": {
+      "type": "object"
+    }
+  }
+}

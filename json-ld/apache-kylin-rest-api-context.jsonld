@@ -1,0 +1,139 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "kylin": "https://apache-kylin.apache.org/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AuthResponse": "kylin:AuthResponse",
+    "Table": "kylin:Table",
+    "Project": "kylin:Project",
+    "Model": "kylin:Model",
+    "Job": "kylin:Job",
+    "ProjectRequest": "kylin:ProjectRequest",
+    "QueryRequest": "kylin:QueryRequest",
+    "QueryResponse": "kylin:QueryResponse",
+    "userDetails": {
+      "@id": "kylin:userDetails",
+      "@type": "@id"
+    },
+    "authorities": {
+      "@id": "kylin:authorities",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "columns": {
+      "@id": "kylin:columns",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "cardinality": {
+      "@id": "kylin:cardinality",
+      "@type": "@id"
+    },
+    "exd": {
+      "@id": "kylin:exd",
+      "@type": "@id"
+    },
+    "description": "schema:description",
+    "createTimeUTC": {
+      "@id": "kylin:createTimeUTC",
+      "@type": "xsd:integer"
+    },
+    "factTable": {
+      "@id": "kylin:factTable",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "kylin:status",
+      "@type": "xsd:string"
+    },
+    "uuid": {
+      "@id": "kylin:uuid",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "kylin:type",
+      "@type": "xsd:string"
+    },
+    "relatedCube": {
+      "@id": "kylin:relatedCube",
+      "@type": "xsd:string"
+    },
+    "relatedSegment": {
+      "@id": "kylin:relatedSegment",
+      "@type": "xsd:string"
+    },
+    "submitTime": {
+      "@id": "kylin:submitTime",
+      "@type": "xsd:integer"
+    },
+    "duration": {
+      "@id": "kylin:duration",
+      "@type": "xsd:integer"
+    },
+    "mrWaiting": {
+      "@id": "kylin:mrWaiting",
+      "@type": "xsd:integer"
+    },
+    "sql": {
+      "@id": "kylin:sql",
+      "@type": "xsd:string"
+    },
+    "project": {
+      "@id": "kylin:project",
+      "@type": "xsd:string"
+    },
+    "offset": {
+      "@id": "kylin:offset",
+      "@type": "xsd:integer"
+    },
+    "limit": {
+      "@id": "kylin:limit",
+      "@type": "xsd:integer"
+    },
+    "acceptPartial": {
+      "@id": "kylin:acceptPartial",
+      "@type": "xsd:boolean"
+    },
+    "columnMetas": {
+      "@id": "kylin:columnMetas",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "results": {
+      "@id": "kylin:results",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "queryId": {
+      "@id": "kylin:queryId",
+      "@type": "xsd:string"
+    },
+    "isException": {
+      "@id": "kylin:isException",
+      "@type": "xsd:boolean"
+    },
+    "exceptionMessage": {
+      "@id": "kylin:exceptionMessage",
+      "@type": "xsd:string"
+    },
+    "totalScanCount": {
+      "@id": "kylin:totalScanCount",
+      "@type": "xsd:integer"
+    },
+    "totalScanBytes": {
+      "@id": "kylin:totalScanBytes",
+      "@type": "xsd:integer"
+    },
+    "hitExceptionCache": {
+      "@id": "kylin:hitExceptionCache",
+      "@type": "xsd:boolean"
+    },
+    "storageCacheUsed": {
+      "@id": "kylin:storageCacheUsed",
+      "@type": "xsd:boolean"
+    }
+  }
+}

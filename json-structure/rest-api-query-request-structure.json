@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-structure/rest-api-query-request-structure.json",
+  "name": "QueryRequest",
+  "description": "SQL query request",
+  "properties": {
+    "sql": {
+      "type": "string",
+      "description": "SQL query to execute",
+      "example": "SELECT count(*) FROM kylin_sales"
+    },
+    "project": {
+      "type": "string",
+      "description": "Project name to query",
+      "example": "learn_kylin"
+    },
+    "offset": {
+      "type": "integer",
+      "description": "Result offset for pagination",
+      "example": 0
+    },
+    "limit": {
+      "type": "integer",
+      "description": "Maximum number of results",
+      "example": 50000
+    },
+    "acceptPartial": {
+      "type": "boolean",
+      "description": "Accept partial results if query times out",
+      "example": true
+    }
+  },
+  "required": [
+    "sql",
+    "project"
+  ]
+}

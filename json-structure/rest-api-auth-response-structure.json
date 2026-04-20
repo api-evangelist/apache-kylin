@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-structure/rest-api-auth-response-structure.json",
+  "name": "AuthResponse",
+  "description": "Authentication response",
+  "properties": {
+    "userDetails": {
+      "type": "object"
+    },
+    "authorities": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

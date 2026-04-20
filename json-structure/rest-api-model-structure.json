@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-structure/rest-api-model-structure.json",
+  "name": "Model",
+  "description": "A Kylin data model",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "kylin_sales_model"
+    },
+    "description": {
+      "type": "string",
+      "example": "Sales data model"
+    },
+    "factTable": {
+      "type": "string",
+      "example": "KYLIN_SALES"
+    },
+    "status": {
+      "type": "string",
+      "example": "ONLINE"
+    }
+  }
+}

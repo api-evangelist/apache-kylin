@@ -1,0 +1,554 @@
+openapi: 3.0.3
+info:
+  title: Apache Kylin REST API
+  description: REST API for Apache Kylin OLAP engine providing SQL queries, model management, cube management, job management, and project administration.
+  version: 5.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    email: dev@kylin.apache.org
+servers:
+- url: http://localhost:7070/kylin/api
+  description: Apache Kylin server
+security:
+- basicAuth: []
+tags:
+- name: Query
+  description: SQL query execution
+- name: Models
+  description: Data model management
+- name: Projects
+  description: Project management
+- name: Jobs
+  description: Build job management
+- name: Tables
+  description: Table and datasource management
+- name: Authentication
+  description: User authentication
+paths:
+  /query:
+    post:
+      operationId: executeQuery
+      summary: Apache kylin Apache Kylin Execute Query
+      description: Execute a SQL query against a Kylin project.
+      tags: [Query]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+            examples:
+              executeQueryRequestExample:
+                summary: Default executeQuery request
+                x-microcks-default: true
+                value:
+                  sql: SELECT count(*) FROM kylin_sales
+                  project: learn_kylin
+                  offset: 0
+                  limit: 50000
+                  acceptPartial: true
+      responses:
+        '200':
+          description: Query results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+              examples:
+                executeQuery200Example:
+                  summary: Default executeQuery 200 response
+                  x-microcks-default: true
+                  value:
+                    columnMetas: []
+                    results: []
+                    queryId: query-1234
+                    isException: false
+                    exceptionMessage: example-value
+                    duration: 120
+                    totalScanCount: 10000
+                    totalScanBytes: 409600
+                    hitExceptionCache: false
+                    storageCacheUsed: false
+        '400':
+          description: Invalid SQL query
+  /query/async:
+    post:
+      operationId: executeAsyncQuery
+      summary: Apache kylin Apache Kylin Execute Async Query
+      description: Execute an asynchronous SQL query against a Kylin project.
+      tags: [Query]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+            examples:
+              executeAsyncQueryRequestExample:
+                summary: Default executeAsyncQuery request
+                x-microcks-default: true
+                value:
+                  sql: SELECT count(*) FROM kylin_sales
+                  project: learn_kylin
+                  offset: 0
+                  limit: 50000
+                  acceptPartial: true
+      responses:
+        '200':
+          description: Query job ID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  queryId:
+                    type: string
+                    example: query-1234
+              examples:
+                executeAsyncQuery200Example:
+                  summary: Default executeAsyncQuery 200 response
+                  x-microcks-default: true
+                  value:
+                    queryId: query-1234
+  /projects:
+    get:
+      operationId: listProjects
+      summary: Apache kylin Apache Kylin List Projects
+      description: List all Kylin projects.
+      tags: [Projects]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+              examples:
+                listProjects200Example:
+                  summary: Default listProjects 200 response
+                  x-microcks-default: true
+                  value: {}
+    post:
+      operationId: createProject
+      summary: Apache kylin Apache Kylin Create Project
+      description: Create a new Kylin project.
+      tags: [Projects]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectRequest'
+            examples:
+              createProjectRequestExample:
+                summary: Default createProject request
+                x-microcks-default: true
+                value:
+                  name: my_project
+                  description: My Kylin project
+      responses:
+        '200':
+          description: Project created
+  /models:
+    get:
+      operationId: listModels
+      summary: Apache kylin Apache Kylin List Models
+      description: List all data models in a project.
+      tags: [Models]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: projectName
+        in: query
+        required: true
+        schema:
+          type: string
+        example: learn_kylin
+      - name: modelName
+        in: query
+        schema:
+          type: string
+        example: kylin_sales_model
+      responses:
+        '200':
+          description: List of models
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Model'
+              examples:
+                listModels200Example:
+                  summary: Default listModels 200 response
+                  x-microcks-default: true
+                  value: {}
+  /jobs:
+    get:
+      operationId: listJobs
+      summary: Apache kylin Apache Kylin List Jobs
+      description: List all build jobs optionally filtered by project and status.
+      tags: [Jobs]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: projectName
+        in: query
+        schema:
+          type: string
+        example: learn_kylin
+      - name: status
+        in: query
+        schema:
+          type: integer
+        example: 0
+        description: Job status code (0=READY, 1=RUNNING, 2=ERROR, 4=STOPPED, 8=FINISHED, 32=DISCARDED)
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        example: 20
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        example: 0
+      responses:
+        '200':
+          description: List of jobs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Job'
+              examples:
+                listJobs200Example:
+                  summary: Default listJobs 200 response
+                  x-microcks-default: true
+                  value: {}
+  /jobs/{jobId}:
+    get:
+      operationId: getJob
+      summary: Apache kylin Apache Kylin Get Job
+      description: Get details of a specific build job.
+      tags: [Jobs]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: job-1234
+      responses:
+        '200':
+          description: Job details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+              examples:
+                getJob200Example:
+                  summary: Default getJob 200 response
+                  x-microcks-default: true
+                  value:
+                    uuid: job-1234
+                    name: BUILD CUBE - kylin_sales_cube
+                    type: BUILD
+                    relatedCube: kylin_sales_cube
+                    relatedSegment: segment-1234
+                    status: FINISHED
+                    submitTime: 1718153645993
+                    duration: 120
+                    mrWaiting: 10
+  /jobs/{jobId}/resume:
+    put:
+      operationId: resumeJob
+      summary: Apache kylin Apache Kylin Resume Job
+      description: Resume a paused or error build job.
+      tags: [Jobs]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: job-1234
+      responses:
+        '200':
+          description: Job resumed
+  /jobs/{jobId}/cancel:
+    put:
+      operationId: cancelJob
+      summary: Apache kylin Apache Kylin Cancel Job
+      description: Cancel a running build job.
+      tags: [Jobs]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: job-1234
+      responses:
+        '200':
+          description: Job cancelled
+  /tables:
+    get:
+      operationId: listTables
+      summary: Apache kylin Apache Kylin List Tables
+      description: List all tables loaded in a project.
+      tags: [Tables]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: project
+        in: query
+        required: true
+        schema:
+          type: string
+        example: learn_kylin
+      - name: ext
+        in: query
+        schema:
+          type: boolean
+        example: true
+      responses:
+        '200':
+          description: List of tables
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Table'
+              examples:
+                listTables200Example:
+                  summary: Default listTables 200 response
+                  x-microcks-default: true
+                  value: {}
+  /user/authentication:
+    post:
+      operationId: authenticate
+      summary: Apache kylin Apache Kylin Authenticate
+      description: Authenticate a user and return authentication information.
+      tags: [Authentication]
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+              examples:
+                authenticate200Example:
+                  summary: Default authenticate 200 response
+                  x-microcks-default: true
+                  value:
+                    userDetails: {}
+                    authorities: []
+        '401':
+          description: Authentication failed
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    QueryRequest:
+      type: object
+      description: SQL query request
+      required: [sql, project]
+      properties:
+        sql:
+          type: string
+          description: SQL query to execute
+          example: SELECT count(*) FROM kylin_sales
+        project:
+          type: string
+          description: Project name to query
+          example: learn_kylin
+        offset:
+          type: integer
+          description: Result offset for pagination
+          example: 0
+        limit:
+          type: integer
+          description: Maximum number of results
+          example: 50000
+        acceptPartial:
+          type: boolean
+          description: Accept partial results if query times out
+          example: true
+    QueryResponse:
+      type: object
+      description: SQL query response
+      properties:
+        columnMetas:
+          type: array
+          description: Result column metadata
+          items:
+            type: object
+        results:
+          type: array
+          description: Query result rows
+          items:
+            type: array
+            items:
+              type: string
+        queryId:
+          type: string
+          example: query-1234
+        isException:
+          type: boolean
+          example: false
+        exceptionMessage:
+          type: string
+        duration:
+          type: integer
+          description: Query duration in milliseconds
+          example: 120
+        totalScanCount:
+          type: integer
+          example: 10000
+        totalScanBytes:
+          type: integer
+          example: 409600
+        hitExceptionCache:
+          type: boolean
+          example: false
+        storageCacheUsed:
+          type: boolean
+          example: false
+    Project:
+      type: object
+      description: A Kylin project
+      properties:
+        name:
+          type: string
+          example: learn_kylin
+        description:
+          type: string
+          example: Learning project for Apache Kylin
+        createTimeUTC:
+          type: integer
+          description: Creation time as Unix timestamp
+          example: 1718153645993
+    ProjectRequest:
+      type: object
+      description: Request to create a project
+      required: [name]
+      properties:
+        name:
+          type: string
+          example: my_project
+        description:
+          type: string
+          example: My Kylin project
+    Model:
+      type: object
+      description: A Kylin data model
+      properties:
+        name:
+          type: string
+          example: kylin_sales_model
+        description:
+          type: string
+          example: Sales data model
+        factTable:
+          type: string
+          example: KYLIN_SALES
+        status:
+          type: string
+          example: ONLINE
+    Job:
+      type: object
+      description: A Kylin build job
+      properties:
+        uuid:
+          type: string
+          example: job-1234
+        name:
+          type: string
+          example: BUILD CUBE - kylin_sales_cube
+        type:
+          type: string
+          example: BUILD
+        relatedCube:
+          type: string
+          example: kylin_sales_cube
+        relatedSegment:
+          type: string
+          example: segment-1234
+        status:
+          type: string
+          enum: [READY, RUNNING, ERROR, STOPPED, FINISHED, DISCARDED]
+          example: FINISHED
+        submitTime:
+          type: integer
+          description: Submit time as Unix timestamp
+          example: 1718153645993
+        duration:
+          type: integer
+          description: Job duration in seconds
+          example: 120
+        mrWaiting:
+          type: integer
+          description: MapReduce waiting time
+          example: 10
+    Table:
+      type: object
+      description: A Kylin table
+      properties:
+        name:
+          type: string
+          example: KYLIN_SALES
+        columns:
+          type: array
+          items:
+            type: object
+        cardinality:
+          type: object
+        exd:
+          type: object
+    AuthResponse:
+      type: object
+      description: Authentication response
+      properties:
+        userDetails:
+          type: object
+        authorities:
+          type: array
+          items:
+            type: object

@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/json-structure/rest-api-query-response-structure.json",
+  "name": "QueryResponse",
+  "description": "SQL query response",
+  "properties": {
+    "columnMetas": {
+      "type": "array",
+      "description": "Result column metadata",
+      "items": {
+        "type": "object"
+      }
+    },
+    "results": {
+      "type": "array",
+      "description": "Query result rows",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "queryId": {
+      "type": "string",
+      "example": "query-1234"
+    },
+    "isException": {
+      "type": "boolean",
+      "example": false
+    },
+    "exceptionMessage": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Query duration in milliseconds",
+      "example": 120
+    },
+    "totalScanCount": {
+      "type": "integer",
+      "example": 10000
+    },
+    "totalScanBytes": {
+      "type": "integer",
+      "example": 409600
+    },
+    "hitExceptionCache": {
+      "type": "boolean",
+      "example": false
+    },
+    "storageCacheUsed": {
+      "type": "boolean",
+      "example": false
+    }
+  }
+}

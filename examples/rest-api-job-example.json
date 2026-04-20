@@ -1,0 +1,11 @@
+{
+  "uuid": "job-1234",
+  "name": "BUILD CUBE - kylin_sales_cube",
+  "type": "BUILD",
+  "relatedCube": "kylin_sales_cube",
+  "relatedSegment": "segment-1234",
+  "status": "FINISHED",
+  "submitTime": 1718153645993,
+  "duration": 120,
+  "mrWaiting": 10
+}
