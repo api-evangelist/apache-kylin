@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache Kylin REST API — Models
+  description: 'Apache Kylin REST API — Models. 1 operations. Lead operation: Apache kylin Apache Kylin List Models. Self-contained
+    Naftiko capability covering one Apache Kylin business surface.'
+  tags:
+  - Apache Kylin
+  - Models
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_KYLIN_API_KEY: APACHE_KYLIN_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-models
+    baseUri: http://localhost:7070/kylin/api
+    description: Apache Kylin REST API — Models business capability. Self-contained, no shared references.
+    resources:
+    - name: models
+      path: /models
+      operations:
+      - name: listmodels
+        method: GET
+        description: Apache kylin Apache Kylin List Models
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectName
+          in: query
+          type: string
+          required: true
+        - name: modelName
+          in: query
+          type: string
+    authentication:
+      type: basic
+      username: '{{env.APACHE_KYLIN_USER}}'
+      password: '{{env.APACHE_KYLIN_PASS}}'
+  exposes:
+  - type: rest
+    namespace: rest-models-rest
+    port: 8080
+    description: REST adapter for Apache Kylin REST API — Models. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/models
+      name: models
+      description: REST surface for models.
+      operations:
+      - method: GET
+        name: listmodels
+        description: Apache kylin Apache Kylin List Models
+        call: rest-models.listmodels
+        with:
+          projectName: rest.projectName
+          modelName: rest.modelName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-models-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache Kylin REST API — Models. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: apache-kylin-apache-kylin-list
+      description: Apache kylin Apache Kylin List Models
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-models.listmodels
+      with:
+        projectName: tools.projectName
+        modelName: tools.modelName
+      outputParameters:
+      - type: object
+        mapping: $.
