@@ -58,6 +58,12 @@ apis:
   - type: Documentation
     url: https://kylin.apache.org/docs/tutorial/jdbc.html
 common:
+- type: VulnerabilityDisclosure
+  url: security/apache-kylin-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/apache-kylin-domain-security.yml
+- type: Authentication
+  url: authentication/apache-kylin-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/apache
 - type: GitHubRepository
@@ -114,6 +120,8 @@ common:
     description: Native Tableau connector via Kylin JDBC driver.
   - name: Apache Superset
     description: Apache Superset integration via JDBC for self-service analytics.
+  - url: https://kylin.apache.org/blog/rss.xml
+    type: Blog
 maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
