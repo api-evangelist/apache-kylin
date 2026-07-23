@@ -1,0 +1,77 @@
+openapi: 3.0.3
+info:
+  title: Apache Kylin REST Authentication Models API
+  description: REST API for Apache Kylin OLAP engine providing SQL queries, model management, cube management, job management, and project administration.
+  version: 5.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    email: dev@kylin.apache.org
+servers:
+- url: http://localhost:7070/kylin/api
+  description: Apache Kylin server
+security:
+- basicAuth: []
+tags:
+- name: Models
+  description: Data model management
+paths:
+  /models:
+    get:
+      operationId: listModels
+      summary: Apache kylin Apache Kylin List Models
+      description: List all data models in a project.
+      tags:
+      - Models
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: projectName
+        in: query
+        required: true
+        schema:
+          type: string
+        example: learn_kylin
+      - name: modelName
+        in: query
+        schema:
+          type: string
+        example: kylin_sales_model
+      responses:
+        '200':
+          description: List of models
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Model'
+              examples:
+                listModels200Example:
+                  summary: Default listModels 200 response
+                  x-microcks-default: true
+                  value: {}
+components:
+  schemas:
+    Model:
+      type: object
+      description: A Kylin data model
+      properties:
+        name:
+          type: string
+          example: kylin_sales_model
+        description:
+          type: string
+          example: Sales data model
+        factTable:
+          type: string
+          example: KYLIN_SALES
+        status:
+          type: string
+          example: ONLINE
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: Apache Kylin REST Authentication Projects API
+  description: REST API for Apache Kylin OLAP engine providing SQL queries, model management, cube management, job management, and project administration.
+  version: 5.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    email: dev@kylin.apache.org
+servers:
+- url: http://localhost:7070/kylin/api
+  description: Apache Kylin server
+security:
+- basicAuth: []
+tags:
+- name: Projects
+  description: Project management
+paths:
+  /projects:
+    get:
+      operationId: listProjects
+      summary: Apache kylin Apache Kylin List Projects
+      description: List all Kylin projects.
+      tags:
+      - Projects
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+              examples:
+                listProjects200Example:
+                  summary: Default listProjects 200 response
+                  x-microcks-default: true
+                  value: {}
+    post:
+      operationId: createProject
+      summary: Apache kylin Apache Kylin Create Project
+      description: Create a new Kylin project.
+      tags:
+      - Projects
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectRequest'
+            examples:
+              createProjectRequestExample:
+                summary: Default createProject request
+                x-microcks-default: true
+                value:
+                  name: my_project
+                  description: My Kylin project
+      responses:
+        '200':
+          description: Project created
+components:
+  schemas:
+    Project:
+      type: object
+      description: A Kylin project
+      properties:
+        name:
+          type: string
+          example: learn_kylin
+        description:
+          type: string
+          example: Learning project for Apache Kylin
+        createTimeUTC:
+          type: integer
+          description: Creation time as Unix timestamp
+          example: 1718153645993
+    ProjectRequest:
+      type: object
+      description: Request to create a project
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          example: my_project
+        description:
+          type: string
+          example: My Kylin project
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

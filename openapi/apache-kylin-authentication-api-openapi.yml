@@ -1,0 +1,61 @@
+openapi: 3.0.3
+info:
+  title: Apache Kylin REST Authentication API
+  description: REST API for Apache Kylin OLAP engine providing SQL queries, model management, cube management, job management, and project administration.
+  version: 5.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    email: dev@kylin.apache.org
+servers:
+- url: http://localhost:7070/kylin/api
+  description: Apache Kylin server
+security:
+- basicAuth: []
+tags:
+- name: Authentication
+  description: User authentication
+paths:
+  /user/authentication:
+    post:
+      operationId: authenticate
+      summary: Apache kylin Apache Kylin Authenticate
+      description: Authenticate a user and return authentication information.
+      tags:
+      - Authentication
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+              examples:
+                authenticate200Example:
+                  summary: Default authenticate 200 response
+                  x-microcks-default: true
+                  value:
+                    userDetails: {}
+                    authorities: []
+        '401':
+          description: Authentication failed
+components:
+  schemas:
+    AuthResponse:
+      type: object
+      description: Authentication response
+      properties:
+        userDetails:
+          type: object
+        authorities:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
