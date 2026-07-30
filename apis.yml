@@ -4,9 +4,22 @@ description: Apache Kylin is an open-source distributed analytics engine designe
   analysis (OLAP) on large-scale datasets. It provides sub-second query latency on trillion-record datasets via pre-computed
   cubes and works on top of Hadoop, Spark, and cloud storage.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-kylin.png
 tags:
 - Analytics
 - Big Data
@@ -19,21 +32,29 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-- aid: apache-kylin:rest-api
-  name: Apache Kylin REST API
-  description: The Kylin REST API provides endpoints for SQL query execution, model management, project management, job management,
-    and table management for administering the Kylin OLAP engine.
-  humanURL: https://kylin.apache.org/docs/restapi/
+- aid: apache-kylin:jdbc-driver
+  name: Apache Kylin JDBC Driver
+  description: >-
+    The Kylin JDBC driver provides SQL-over-Kylin access for BI tools and SQL clients, enabling standard
+    JDBC connectivity to Kylin OLAP cubes.
+  humanURL: https://kylin.apache.org/docs/tutorial/jdbc.html
   tags:
   - JDBC
-  - OLAP
-  - REST
   - SQL
   properties:
   - type: Documentation
-    url: https://kylin.apache.org/docs/restapi/
+    url: https://kylin.apache.org/docs/tutorial/jdbc.html
+- aid: apache-kylin:apache-kylin-authentication-api
+  name: Apache Kylin Authentication API
+  description: User authentication
+  humanURL: https://kylin.apache.org/docs/restapi/
+  tags:
+  - Authentication
+  properties:
   - type: OpenAPI
-    url: openapi/apache-kylin-rest-api.yaml
+    url: openapi/apache-kylin-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://kylin.apache.org/docs/restapi/
   - type: X-NaftikoCapability
     url: capabilities/rest-authentication.yaml
   - type: X-NaftikoCapability
@@ -46,17 +67,121 @@ apis:
     url: capabilities/rest-query.yaml
   - type: X-NaftikoCapability
     url: capabilities/rest-tables.yaml
-- aid: apache-kylin:jdbc-driver
-  name: Apache Kylin JDBC Driver
-  description: The Kylin JDBC driver provides SQL-over-Kylin access for BI tools and SQL clients, enabling standard JDBC connectivity
-    to Kylin OLAP cubes.
-  humanURL: https://kylin.apache.org/docs/tutorial/jdbc.html
+- aid: apache-kylin:apache-kylin-jobs-api
+  name: Apache Kylin Jobs API
+  description: Build job management
+  humanURL: https://kylin.apache.org/docs/restapi/
   tags:
-  - JDBC
-  - SQL
+  - Jobs
   properties:
+  - type: OpenAPI
+    url: openapi/apache-kylin-jobs-api-openapi.yml
   - type: Documentation
-    url: https://kylin.apache.org/docs/tutorial/jdbc.html
+    url: https://kylin.apache.org/docs/restapi/
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-jobs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-models.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-query.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tables.yaml
+- aid: apache-kylin:apache-kylin-models-api
+  name: Apache Kylin Models API
+  description: Data model management
+  humanURL: https://kylin.apache.org/docs/restapi/
+  tags:
+  - Models
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-kylin-models-api-openapi.yml
+  - type: Documentation
+    url: https://kylin.apache.org/docs/restapi/
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-jobs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-models.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-query.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tables.yaml
+- aid: apache-kylin:apache-kylin-projects-api
+  name: Apache Kylin Projects API
+  description: Project management
+  humanURL: https://kylin.apache.org/docs/restapi/
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-kylin-projects-api-openapi.yml
+  - type: Documentation
+    url: https://kylin.apache.org/docs/restapi/
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-jobs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-models.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-query.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tables.yaml
+- aid: apache-kylin:apache-kylin-query-api
+  name: Apache Kylin Query API
+  description: SQL query execution
+  humanURL: https://kylin.apache.org/docs/restapi/
+  tags:
+  - Query
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-kylin-query-api-openapi.yml
+  - type: Documentation
+    url: https://kylin.apache.org/docs/restapi/
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-jobs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-models.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-query.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tables.yaml
+- aid: apache-kylin:apache-kylin-tables-api
+  name: Apache Kylin Tables API
+  description: Table and datasource management
+  humanURL: https://kylin.apache.org/docs/restapi/
+  tags:
+  - Tables
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-kylin-tables-api-openapi.yml
+  - type: Documentation
+    url: https://kylin.apache.org/docs/restapi/
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-jobs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-models.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-query.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tables.yaml
 common:
 - type: AgenticAccess
   url: agentic-access/apache-kylin-agentic-access.yml
