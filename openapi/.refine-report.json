@@ -1,0 +1,24 @@
+{
+  "provider": "apache-kylin",
+  "sources": [
+    "apache-kylin-authentication-api-openapi.yml",
+    "apache-kylin-jobs-api-openapi.yml",
+    "apache-kylin-models-api-openapi.yml",
+    "apache-kylin-projects-api-openapi.yml",
+    "apache-kylin-query-api-openapi.yml",
+    "apache-kylin-tables-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-kylin-authentication-api-openapi.yml",
+    "apache-kylin-jobs-api-openapi.yml",
+    "apache-kylin-models-api-openapi.yml",
+    "apache-kylin-projects-api-openapi.yml",
+    "apache-kylin-query-api-openapi.yml",
+    "apache-kylin-tables-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
