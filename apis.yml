@@ -55,18 +55,6 @@ apis:
     url: openapi/apache-kylin-authentication-api-openapi.yml
   - type: Documentation
     url: https://kylin.apache.org/docs/restapi/
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-jobs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-query.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tables.yaml
 - aid: apache-kylin:apache-kylin-jobs-api
   name: Apache Kylin Jobs API
   description: Build job management
@@ -78,18 +66,6 @@ apis:
     url: openapi/apache-kylin-jobs-api-openapi.yml
   - type: Documentation
     url: https://kylin.apache.org/docs/restapi/
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-jobs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-query.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tables.yaml
 - aid: apache-kylin:apache-kylin-models-api
   name: Apache Kylin Models API
   description: Data model management
@@ -101,18 +77,6 @@ apis:
     url: openapi/apache-kylin-models-api-openapi.yml
   - type: Documentation
     url: https://kylin.apache.org/docs/restapi/
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-jobs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-query.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tables.yaml
 - aid: apache-kylin:apache-kylin-projects-api
   name: Apache Kylin Projects API
   description: Project management
@@ -124,18 +88,6 @@ apis:
     url: openapi/apache-kylin-projects-api-openapi.yml
   - type: Documentation
     url: https://kylin.apache.org/docs/restapi/
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-jobs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-query.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tables.yaml
 - aid: apache-kylin:apache-kylin-query-api
   name: Apache Kylin Query API
   description: SQL query execution
@@ -147,18 +99,6 @@ apis:
     url: openapi/apache-kylin-query-api-openapi.yml
   - type: Documentation
     url: https://kylin.apache.org/docs/restapi/
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-jobs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-query.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tables.yaml
 - aid: apache-kylin:apache-kylin-tables-api
   name: Apache Kylin Tables API
   description: Table and datasource management
@@ -170,19 +110,14 @@ apis:
     url: openapi/apache-kylin-tables-api-openapi.yml
   - type: Documentation
     url: https://kylin.apache.org/docs/restapi/
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-jobs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-query.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tables.yaml
 common:
+- type: Releases
+  url: https://github.com/apache/kylin/releases
+- type: CodeOfConduct
+  url: https://github.com/apache/.github/blob/main/.github/CODE_OF_CONDUCT.md
+- type: License
+  name: Apache-2.0
+  url: https://github.com/apache/kylin/blob/kylin5/LICENSE
 - type: AgenticAccess
   url: agentic-access/apache-kylin-agentic-access.yml
 - type: VulnerabilityDisclosure
