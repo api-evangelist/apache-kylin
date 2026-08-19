@@ -1,0 +1,292 @@
+{
+  "item": [
+    {
+      "id": "e4038d31-6f52-4c39-ba2a-f509d71bb404",
+      "name": "Query",
+      "description": {
+        "content": "SQL query execution",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c972b081-5737-46ad-99a0-9a2783e384b3",
+          "name": "Apache kylin Apache Kylin Execute Query",
+          "request": {
+            "name": "Apache kylin Apache Kylin Execute Query",
+            "description": {
+              "content": "Execute a SQL query against a Kylin project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sql\": \"<string>\",\n  \"project\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"acceptPartial\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4d80d28-0f95-4c75-a48d-53a58eadf658",
+              "name": "Query results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sql\": \"SELECT count(*) FROM kylin_sales\",\n  \"project\": \"learn_kylin\",\n  \"offset\": 0,\n  \"limit\": 50000,\n  \"acceptPartial\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"columnMetas\": [],\n  \"results\": [],\n  \"queryId\": \"query-1234\",\n  \"isException\": false,\n  \"exceptionMessage\": \"example-value\",\n  \"duration\": 120,\n  \"totalScanCount\": 10000,\n  \"totalScanBytes\": 409600,\n  \"hitExceptionCache\": false,\n  \"storageCacheUsed\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eac8ccd3-5640-4869-b217-f9326519d9af",
+              "name": "Invalid SQL query",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sql\": \"SELECT count(*) FROM kylin_sales\",\n  \"project\": \"learn_kylin\",\n  \"offset\": 0,\n  \"limit\": 50000,\n  \"acceptPartial\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17b17527-7661-451a-a202-75c58d985383",
+          "name": "Apache kylin Apache Kylin Execute Async Query",
+          "request": {
+            "name": "Apache kylin Apache Kylin Execute Async Query",
+            "description": {
+              "content": "Execute an asynchronous SQL query against a Kylin project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "query",
+                "async"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sql\": \"<string>\",\n  \"project\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"acceptPartial\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "43590ea5-d0d5-4b9b-a872-2aff78e8c5d4",
+              "name": "Query job ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query",
+                    "async"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sql\": \"SELECT count(*) FROM kylin_sales\",\n  \"project\": \"learn_kylin\",\n  \"offset\": 0,\n  \"limit\": 50000,\n  \"acceptPartial\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"queryId\": \"query-1234\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:7070/kylin/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8899b2ee-89e9-4c5a-9e1b-6f70205ae0c3",
+    "name": "Apache Kylin REST Authentication Query API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Apache Kylin OLAP engine providing SQL queries, model management, cube management, job management, and project administration.\n\nContact Support:\n Email: dev@kylin.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

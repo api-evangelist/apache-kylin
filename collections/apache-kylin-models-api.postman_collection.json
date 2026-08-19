@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "761afd3e-71c4-4ce8-b803-a67b908580fa",
+      "name": "Models",
+      "description": {
+        "content": "Data model management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70263940-577a-4d90-9383-bb96e34e2e0b",
+          "name": "Apache kylin Apache Kylin List Models",
+          "request": {
+            "name": "Apache kylin Apache Kylin List Models",
+            "description": {
+              "content": "List all data models in a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "modelName",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2976f11-7c21-42fe-a971-a5387bbba77e",
+              "name": "List of models",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectName",
+                      "value": "learn_kylin"
+                    },
+                    {
+                      "key": "modelName",
+                      "value": "kylin_sales_model"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:7070/kylin/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4f03423d-6028-471b-a2aa-34346d14c47a",
+    "name": "Apache Kylin REST Authentication Models API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Apache Kylin OLAP engine providing SQL queries, model management, cube management, job management, and project administration.\n\nContact Support:\n Email: dev@kylin.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

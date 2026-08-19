@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Kylin REST Authentication Projects API",
+    "version": "5.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache kylin Apache Kylin List Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:7070/kylin/api/projects"
+          },
+          "docs": "List all Kylin projects."
+        },
+        {
+          "info": {
+            "name": "Apache kylin Apache Kylin Create Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:7070/kylin/api/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Kylin project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

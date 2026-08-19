@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Kylin REST Authentication Jobs API",
+    "version": "5.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache kylin Apache Kylin List Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:7070/kylin/api/jobs",
+            "params": [
+              {
+                "name": "projectName",
+                "value": "learn_kylin",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "0",
+                "type": "query",
+                "description": "Job status code (0=READY, 1=RUNNING, 2=ERROR, 4=STOPPED, 8=FINISHED, 32=DISCARDED)"
+              },
+              {
+                "name": "limit",
+                "value": "20",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all build jobs optionally filtered by project and status."
+        },
+        {
+          "info": {
+            "name": "Apache kylin Apache Kylin Get Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:7070/kylin/api/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "job-1234",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get details of a specific build job."
+        },
+        {
+          "info": {
+            "name": "Apache kylin Apache Kylin Resume Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7070/kylin/api/jobs/:jobId/resume",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "job-1234",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resume a paused or error build job."
+        },
+        {
+          "info": {
+            "name": "Apache kylin Apache Kylin Cancel Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7070/kylin/api/jobs/:jobId/cancel",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "job-1234",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel a running build job."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

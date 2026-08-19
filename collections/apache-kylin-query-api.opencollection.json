@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Kylin REST Authentication Query API",
+    "version": "5.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache kylin Apache Kylin Execute Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:7070/kylin/api/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute a SQL query against a Kylin project."
+        },
+        {
+          "info": {
+            "name": "Apache kylin Apache Kylin Execute Async Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:7070/kylin/api/query/async",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute an asynchronous SQL query against a Kylin project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

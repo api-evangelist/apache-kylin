@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Kylin REST Authentication API",
+    "version": "5.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache kylin Apache Kylin Authenticate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:7070/kylin/api/user/authentication"
+          },
+          "docs": "Authenticate a user and return authentication information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
