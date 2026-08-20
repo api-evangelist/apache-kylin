@@ -23,6 +23,13 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-kyl
 tags:
 - Analytics
 - Big Data
+- cube
+- OLAP
+- Open-Source
+- SQL
+tags_raw:
+- Analytics
+- Big Data
 - Cube
 - OLAP
 - Open Source
@@ -60,6 +67,8 @@ apis:
   description: Build job management
   humanURL: https://kylin.apache.org/docs/restapi/
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -82,6 +91,8 @@ apis:
   description: Project management
   humanURL: https://kylin.apache.org/docs/restapi/
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
