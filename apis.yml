@@ -37,7 +37,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-kyl
 tags:
 - Analytics
 - Big Data
-- cube
+- Cube
 - OLAP
 - Open-Source
 - SQL
