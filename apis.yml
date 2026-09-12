@@ -137,6 +137,8 @@ apis:
   - type: Documentation
     url: https://kylin.apache.org/docs/restapi/
 common:
+- type: Website
+  url: https://www.apache.org/
 - type: Releases
   url: https://github.com/apache/kylin/releases
 - type: CodeOfConduct
