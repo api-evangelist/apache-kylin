@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Apache Kylin REST Authentication API
   description: REST API for Apache Kylin OLAP engine providing SQL queries, model management, cube management, job management, and project administration.

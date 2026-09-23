@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Apache Kylin REST Authentication Query API
+  title: Apache Kylin REST Query API
   description: REST API for Apache Kylin OLAP engine providing SQL queries, model management, cube management, job management, and project administration.
   version: 5.0.0
   license:
@@ -112,33 +112,6 @@ paths:
                     queryId: query-1234
 components:
   schemas:
-    QueryRequest:
-      type: object
-      description: SQL query request
-      required:
-      - sql
-      - project
-      properties:
-        sql:
-          type: string
-          description: SQL query to execute
-          example: SELECT count(*) FROM kylin_sales
-        project:
-          type: string
-          description: Project name to query
-          example: learn_kylin
-        offset:
-          type: integer
-          description: Result offset for pagination
-          example: 0
-        limit:
-          type: integer
-          description: Maximum number of results
-          example: 50000
-        acceptPartial:
-          type: boolean
-          description: Accept partial results if query times out
-          example: true
     QueryResponse:
       type: object
       description: SQL query response
@@ -179,6 +152,33 @@ components:
         storageCacheUsed:
           type: boolean
           example: false
+    QueryRequest:
+      type: object
+      description: SQL query request
+      required:
+      - sql
+      - project
+      properties:
+        sql:
+          type: string
+          description: SQL query to execute
+          example: SELECT count(*) FROM kylin_sales
+        project:
+          type: string
+          description: Project name to query
+          example: learn_kylin
+        offset:
+          type: integer
+          description: Result offset for pagination
+          example: 0
+        limit:
+          type: integer
+          description: Maximum number of results
+          example: 50000
+        acceptPartial:
+          type: boolean
+          description: Accept partial results if query times out
+          example: true
   securitySchemes:
     basicAuth:
       type: http
