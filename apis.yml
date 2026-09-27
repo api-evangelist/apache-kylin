@@ -43,7 +43,7 @@ tags:
 - Big Data
 - cube
 - OLAP
-- Open-Source
+- Open Source
 - SQL
 tags_raw:
 - Analytics
@@ -52,6 +52,7 @@ tags_raw:
 - OLAP
 - Open Source
 - SQL
+- Open-Source
 created: '2026-03-16'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/apis.yml
