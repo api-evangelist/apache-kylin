@@ -141,6 +141,9 @@ apis:
   - type: Documentation
     url: https://kylin.apache.org/docs/restapi/
 common:
+- type: CapabilityMap
+  url: capabilities/apache-kylin-capability-edges.yml
+  name: Apache Kylin Business Capability Map
 - type: Website
   url: https://www.apache.org/
 - type: Releases
