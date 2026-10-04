@@ -68,6 +68,18 @@ paths:
           description: Project created
 components:
   schemas:
+    ProjectRequest:
+      type: object
+      description: Request to create a project
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          example: my_project
+        description:
+          type: string
+          example: My Kylin project
     Project:
       type: object
       description: A Kylin project
@@ -82,18 +94,6 @@ components:
           type: integer
           description: Creation time as Unix timestamp
           example: 1718153645993
-    ProjectRequest:
-      type: object
-      description: Request to create a project
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          example: my_project
-        description:
-          type: string
-          example: My Kylin project
   securitySchemes:
     basicAuth:
       type: http
