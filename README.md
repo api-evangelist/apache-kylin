@@ -1,4 +1,4 @@
-# Apache Kylin (apache-kylin)
+# Apache Kylin
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,138 +64,188 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Apache Kylin is an open-source distributed analytics engine providing a SQL interface and multi-dimensional analysis (OLAP) on large-scale datasets with sub-second query latency on trillion-record datasets.
+Apache Kylin is an open-source distributed analytics engine designed to provide a SQL interface and multi-dimensional analysis (OLAP) on large-scale datasets. It provides sub-second query latency on trillion-record datasets via pre-computed cubes and works on top of Hadoop, Spark, and cloud storage.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/apache-kylin/refs/heads/main/apis.yml)
+**Areas:** Analytics · Big Data · cube · OLAP · Open Source · SQL
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Apache Kylin on APIs.io
 
-## Tags:
+Everything profiled for Apache Kylin is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apache-kylin/](https://apis.io/providers/apache-kylin/)** — or go straight to one of the APIs or properties below.
 
- - Analytics, Big Data, Cube, OLAP, Open Source, SQL
+### APIs (7)
 
-## Timestamps
+- [Apache Kylin JDBC Driver](https://apis.io/apis/apache-kylin/jdbc-driver/) — The Kylin JDBC driver provides SQL-over-Kylin access for BI tools and SQL clients, enabling standard JDBC connectivity to Kylin OLAP cubes.
+- [Apache Kylin Authentication API](https://apis.io/apis/apache-kylin/apache-kylin-authentication-api/) — User authentication
+- [Apache Kylin Jobs API](https://apis.io/apis/apache-kylin/apache-kylin-jobs-api/) — Build job management
+- [Apache Kylin Models API](https://apis.io/apis/apache-kylin/apache-kylin-models-api/) — Data model management
+- [Apache Kylin Projects API](https://apis.io/apis/apache-kylin/apache-kylin-projects-api/) — Project management
+- [Apache Kylin Query API](https://apis.io/apis/apache-kylin/apache-kylin-query-api/) — SQL query execution
+- [Apache Kylin Tables API](https://apis.io/apis/apache-kylin/apache-kylin-tables-api/) — Table and datasource management
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Apache Kylin REST API
-The Kylin REST API provides endpoints for SQL query execution, model management, project management, and job management.
+#### Agentic access (1)
 
-**Human URL:** [https://kylin.apache.org/docs/restapi/](https://kylin.apache.org/docs/restapi/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Apache Kylin Agentic Access](https://apis.io/agentic-access/apache-kylin/apache-kylin-agentic-access/)
 
- - JDBC, OLAP, REST, SQL
+#### JSON Schema (8)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://kylin.apache.org/docs/restapi/)
-- [OpenAPI](openapi/apache-kylin-rest-api.yaml)
+- [AuthResponse](https://apis.io/schemas/apache-kylin/rest-api-auth-response/)
+- [Job](https://apis.io/schemas/apache-kylin/rest-api-job/)
+- [Model](https://apis.io/schemas/apache-kylin/rest-api-model/)
+- [Project](https://apis.io/schemas/apache-kylin/rest-api-project/)
+- [ProjectRequest](https://apis.io/schemas/apache-kylin/rest-api-project-request/)
+- [QueryRequest](https://apis.io/schemas/apache-kylin/rest-api-query-request/)
+- [QueryResponse](https://apis.io/schemas/apache-kylin/rest-api-query-response/)
+- [Table](https://apis.io/schemas/apache-kylin/rest-api-table/)
 
-### Apache Kylin JDBC Driver
-The Kylin JDBC driver provides SQL-over-Kylin access for BI tools and SQL clients.
+#### JSON Structure (8)
 
-**Human URL:** [https://kylin.apache.org/docs/tutorial/jdbc.html](https://kylin.apache.org/docs/tutorial/jdbc.html)
+Data models expressed in JSON Structure.
 
-#### Tags:
+- [Rest Api Auth Response Structure](https://apis.io/json-structure/apache-kylin/rest-api-auth-response-structure/)
+- [Rest Api Job Structure](https://apis.io/json-structure/apache-kylin/rest-api-job-structure/)
+- [Rest Api Model Structure](https://apis.io/json-structure/apache-kylin/rest-api-model-structure/)
+- [Rest Api Project Request Structure](https://apis.io/json-structure/apache-kylin/rest-api-project-request-structure/)
+- [Rest Api Project Structure](https://apis.io/json-structure/apache-kylin/rest-api-project-structure/)
+- [Rest Api Query Request Structure](https://apis.io/json-structure/apache-kylin/rest-api-query-request-structure/)
+- [Rest Api Query Response Structure](https://apis.io/json-structure/apache-kylin/rest-api-query-response-structure/)
+- [Rest Api Table Structure](https://apis.io/json-structure/apache-kylin/rest-api-table-structure/)
 
- - JDBC, SQL
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://kylin.apache.org/docs/tutorial/jdbc.html)
+- [Apache Kylin Rest Api Context](https://apis.io/jsonld/apache-kylin/apache-kylin-rest-api-context/)
 
-## Common Properties
+#### Vocabulary (1)
 
-- [GitHubOrganization](https://github.com/apache)
-- [GitHubRepository](https://github.com/apache/kylin)
+The provider's domain terms, defined.
+
+- [Apache Kylin Vocabulary](https://apis.io/vocabularies/apache-kylin/apache-kylin-vocabulary/)
+
+#### Examples (8)
+
+Example requests and responses.
+
+- [Rest Api Auth Response Example](https://apis.io/examples/apache-kylin/rest-api-auth-response-example/)
+- [Rest Api Job Example](https://apis.io/examples/apache-kylin/rest-api-job-example/)
+- [Rest Api Model Example](https://apis.io/examples/apache-kylin/rest-api-model-example/)
+- [Rest Api Project Example](https://apis.io/examples/apache-kylin/rest-api-project-example/)
+- [Rest Api Project Request Example](https://apis.io/examples/apache-kylin/rest-api-project-request-example/)
+- [Rest Api Query Request Example](https://apis.io/examples/apache-kylin/rest-api-query-request-example/)
+- [Rest Api Query Response Example](https://apis.io/examples/apache-kylin/rest-api-query-response-example/)
+- [Rest Api Table Example](https://apis.io/examples/apache-kylin/rest-api-table-example/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [Apache Kylin REST Authentication API](https://apis.io/collections/apache-kylin/open-apache-kylin-authentication-api/)
+- [Apache Kylin REST Authentication Jobs API](https://apis.io/collections/apache-kylin/open-apache-kylin-jobs-api/)
+- [Apache Kylin REST Authentication Models API](https://apis.io/collections/apache-kylin/open-apache-kylin-models-api/)
+- [Apache Kylin REST Authentication Projects API](https://apis.io/collections/apache-kylin/open-apache-kylin-projects-api/)
+- [Apache Kylin REST Authentication Query API](https://apis.io/collections/apache-kylin/open-apache-kylin-query-api/)
+- [Apache Kylin REST Authentication Tables API](https://apis.io/collections/apache-kylin/open-apache-kylin-tables-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Apache Kylin — jsonschema rules](https://apis.io/rules/apache-kylin/apache-kylin-jsonschema-spectral-rules/)
+- [Apache Kylin API Rules](https://apis.io/rules/apache-kylin/apache-kylin-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Apache Kylin Authentication](https://apis.io/security/apache-kylin/apache-kylin-authentication/)
+- [Apache Kylin Domain Security](https://apis.io/security/apache-kylin/apache-kylin-domain-security/)
+- [Apache Kylin Vulnerability Disclosure](https://apis.io/security/apache-kylin/apache-kylin-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Apache Kylin Plans Pricing](https://apis.io/plans/apache-kylin/apache-kylin-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Apache Kylin Rate Limits](https://apis.io/rate-limits/apache-kylin/apache-kylin-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Apache Kylin Finops](https://apis.io/finops/apache-kylin/apache-kylin-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.apache.org/)
 - [Documentation](https://kylin.apache.org/docs/)
-- [GettingStarted](https://kylin.apache.org/docs/tutorial/kylin_sample.html)
-- [TermsOfService](https://www.apache.org/licenses/LICENSE-2.0)
-- [Versioning](https://kylin.apache.org/download/)
-- [SpectralRules](rules/apache-kylin-spectral-rules.yml)
-- [Vocabulary](vocabulary/apache-kylin-vocabulary.yaml)
-- [NaftikoCapability](capabilities/olap-analytics.yaml)
+- [Getting started](https://kylin.apache.org/docs/tutorial/kylin_sample.html)
+- [Terms of service](https://www.apache.org/licenses/LICENSE-2.0)
+- [GitHub](https://github.com/apache)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Sub-Second OLAP Queries | Pre-computed cubes enable sub-second query response on trillion-record datasets. |
-| SQL Interface | ANSI SQL interface for business analysts using existing SQL skills. |
-| Cube Pre-computation | Build cubes with aggregates pre-calculated for instant query response. |
-| Hadoop and Cloud Integration | Works on top of Hadoop, Spark, and cloud object storage. |
-| JDBC/ODBC Drivers | Standard JDBC and ODBC drivers for BI tool integration. |
-| Segment Management | Incremental cube building with date-range segment management. |
-| Multi-Tenancy | Project-based multi-tenancy for isolating datasets and access. |
+**Kin Score 35.4** — thin · rubric 0.24.0 · scored 2026-10-17
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 53.6 |
+| Contract governance | 27.3 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 18.4 |
 
-| Name | Description |
-|------|-------------|
-| Data Warehouse Query Acceleration | Accelerate slow Hive or Spark queries with Kylin cube pre-computation. |
-| BI Tool Integration | Connect Tableau, PowerBI, and Superset to Kylin via JDBC for analytics. |
-| Real-Time OLAP | Stream data into Kylin incrementally for near-real-time OLAP analytics. |
-| Large-Scale Reporting | Generate business reports over trillion-record datasets in seconds. |
+**Agent readiness 24.7** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Name | Description |
-|------|-------------|
-| Apache Hadoop | Reads from HDFS and executes MapReduce cube builds on Hadoop. |
-| Apache Spark | Spark-based cube building for faster and more efficient data processing. |
-| Apache Hive | Hive metastore integration for table schema and metadata. |
-| Apache HBase | HBase storage for pre-computed cube data. |
-| Tableau | Native Tableau connector via Kylin JDBC driver. |
-| Apache Superset | Apache Superset integration via JDBC for self-service analytics. |
+**Regulatory alignment 26.5** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apache-kylin/](https://apis.io/providers/apache-kylin/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [Apache Kylin REST API](openapi/apache-kylin-rest-api.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apache Kylin: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-8 schema files extracted from the REST API OpenAPI specification.
-
-### JSON Structure
-
-8 JSON Structure files converted from JSON Schema files.
-
-### Examples
-
-8 example JSON files generated from JSON Schema definitions.
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [Apache Kylin REST API](capabilities/shared/kylin-rest-api.yaml) — 3 operations for SQL queries, project listing, and job management
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Apache Kylin OLAP Analytics](capabilities/olap-analytics.yaml) | Apache Kylin REST API | 5 | Data Analyst, BI Engineer |
-
-## Vocabulary
-
-- [Apache Kylin Vocabulary](vocabulary/apache-kylin-vocabulary.yaml) — Unified taxonomy mapping 5 resources, 7 actions, 1 workflow, and 2 personas
-
-## Rules
-
-- [Apache Kylin Spectral Rules](rules/apache-kylin-spectral-rules.yml) — 12 rules across 7 categories enforcing Apache Kylin REST API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** info@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apache-kylin/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
